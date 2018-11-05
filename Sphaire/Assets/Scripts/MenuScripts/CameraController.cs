@@ -11,13 +11,8 @@ public class CameraController : MonoBehaviour {
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     private float sensitivityX = 3.0f;
-    private float sensitivityY = 1.0f;
-
-   /*  void Start ()
-    {
-        offset = transform.position - player.transform.position;
-    }*/
-
+    private float sensitivityY = 0.5f;
+ 
     private void Update() {
         currentX += joystick.Horizontal * sensitivityX;    
         currentY += joystick.Vertical * sensitivityY;
@@ -25,8 +20,8 @@ public class CameraController : MonoBehaviour {
 
     void LateUpdate ()
     {
-        Vector3 offset = new Vector3 (0, 0, -10f);
-        Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);
+        offset = new Vector3 (0, 0.74f, 1.5f);
+        Quaternion rotation = Quaternion.Euler (currentY, -currentX, 0);
         transform.position = playerTransform.position + (rotation * offset);
         transform.LookAt(playerTransform);
     }
