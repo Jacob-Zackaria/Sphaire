@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public GameObject player;
+    public Transform playerTransform;
     public Joystick joystick;
 
     private Vector3 offset;
@@ -13,10 +13,10 @@ public class CameraController : MonoBehaviour {
     private float sensitivityX = 3.0f;
     private float sensitivityY = 1.0f;
 
-    void Start ()
+   /*  void Start ()
     {
         offset = transform.position - player.transform.position;
-    }
+    }*/
 
     private void Update() {
         currentX += joystick.Horizontal * sensitivityX;    
@@ -25,7 +25,9 @@ public class CameraController : MonoBehaviour {
 
     void LateUpdate ()
     {
+        Vector3 offset = new Vector3 (0, 0, -10f);
         Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);
-        transform.position = player.transform.position + (rotation * offset);
+        transform.position = playerTransform.position + (rotation * offset);
+        transform.LookAt(playerTransform);
     }
 }
