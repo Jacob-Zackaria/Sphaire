@@ -3,8 +3,10 @@
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
+	private Vector3 moveVector;
 
 	public Joystick joystick;
+	public Transform camTransform;
 	public float moveSpeed = 10f;
 
 	void Start () {
@@ -12,11 +14,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
+		moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
+		moveVector = RotateWithView();
 		if(moveVector != Vector3.zero)
 		{
-			rb.AddForce(moveVector * -moveSpeed);
+			rb.AddForce(moveVector * moveSpeed);
 		}
+	}
+
+	private Vector3 RotateWithView() {
+		Vector3 dir = camTransform.TransformDirection(moveVector);
+		dir.Set(dir.x, 0, dir.z);
+		return (dir.normalized * moveVector.magnitude);
 	}
 
 }
