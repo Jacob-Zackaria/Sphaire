@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 moveVector;
 
 	public Joystick joystick;
+	public float jumpVelocity = 10f;
 	public Transform camTransform;
 	public float moveSpeed = 10f;
 
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			rb.AddForce(moveVector * moveSpeed);
 		}
+	}
+
+	public void JumpVertical() {
+		rb.velocity = Vector3.up * jumpVelocity;
 	}
 
 	private Vector3 RotateWithView() {
