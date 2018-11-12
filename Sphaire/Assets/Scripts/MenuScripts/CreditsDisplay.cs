@@ -9,6 +9,7 @@ public class CreditsDisplay : MonoBehaviour {
 	public GameObject menuObject;
 	public GameObject playerJoystick;
 	public GameObject cameraJoystick;
+	public GameObject jumpButton;
 
 	void Start() {
 		audioSource = GetComponent<AudioSource>();
@@ -21,6 +22,7 @@ public class CreditsDisplay : MonoBehaviour {
 
 			playerJoystick.SetActive(false);
 			cameraJoystick.SetActive(false);
+			jumpButton.SetActive(false);
 			
 			creditObject.SetActive(true);
 
