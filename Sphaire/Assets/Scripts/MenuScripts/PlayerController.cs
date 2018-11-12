@@ -3,15 +3,18 @@
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
+	private SphereCollider col;
 	private Vector3 moveVector;
 
 	public Joystick joystick;
+	public LayerMask groundLayers;
 	public float jumpVelocity = 10f;
 	public Transform camTransform;
 	public float moveSpeed = 10f;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
+		col = GetComponent<SphereCollider> ();
 	}
 
 	void FixedUpdate() {
@@ -24,7 +27,14 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void JumpVertical() {
-		rb.velocity = Vector3.up * jumpVelocity;
+		if(OnGround()) {
+			rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+		}
+	}
+
+	private bool OnGround() {
+		return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), 
+		                            col.radius * .9f, groundLayers);
 	}
 
 	private Vector3 RotateWithView() {

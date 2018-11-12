@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour {
     public Joystick joystick;
 
     private Vector3 offset;
+	private Quaternion rotation;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     private float sensitivityX = 3.0f;
@@ -40,15 +41,25 @@ public class CameraController : MonoBehaviour {
 
     void LateUpdate ()
     {
-        offset = new Vector3 (0, 0.74f, 1.5f);
-        Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);
-        transform.position = playerTransform.position + (rotation * offset);
+		offset = new Vector3 (0, 0.74f, 1.5f);
+
+		if(!pitchLock) {
+        	rotation = Quaternion.Euler (currentY, currentX, 0);
+		}
+		else {
+			rotation = Quaternion.Euler (0, currentX, 0);
+		}
+
+		CollisionCheck(playerTransform.position + (rotation * offset));
+		WallCheck ();
+
+		transform.position = playerTransform.position + (rotation * offset);
         transform.LookAt(playerTransform);
     }
 
     private void WallCheck() {
 
-		Ray ray = new Ray (target.position, -target.forward);
+		Ray ray = new Ray (playerTransform.position, -playerTransform.forward);
 		RaycastHit hit;
 
 		if (Physics.SphereCast (ray, 0.2f, out hit, 0.7f, collisionMask)) {
@@ -63,14 +74,14 @@ public class CameraController : MonoBehaviour {
 
 		RaycastHit hit;
 
-		if (Physics.Linecast (target.position, retPoint, out hit, collisionMask)) { 
+		if (Physics.Linecast (playerTransform.position, retPoint, out hit, collisionMask)) { 
 
 			Vector3 norm = hit.normal * wallPush;
 			Vector3 p = hit.point + norm;
 
 			TransparencyCheck ();
 
-			if (Vector3.Distance (Vector3.Lerp (transform.position, p, moveSpeed * Time.deltaTime), target.position) <= evenCloserDistanceToPlayer) {
+			if (Vector3.Distance (Vector3.Lerp (transform.position, p, moveSpeed * Time.deltaTime), playerTransform.position) <= evenCloserDistanceToPlayer) {
 
 
 			} else {
@@ -94,7 +105,7 @@ public class CameraController : MonoBehaviour {
 
 		if (changeTransparency) {
 			
-			if (Vector3.Distance (transform.position, target.position) <= closestDistanceToPlayer) {
+			if (Vector3.Distance (transform.position, playerTransform.position) <= closestDistanceToPlayer) {
 				
 				Color temp = targetRenderer.sharedMaterial.color;
 				temp.a = Mathf.Lerp (temp.a, 0.2f, moveSpeed * Time.deltaTime);
