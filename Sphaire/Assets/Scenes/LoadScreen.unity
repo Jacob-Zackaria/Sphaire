@@ -213,11 +213,6 @@ MonoBehaviour:
   sceneIndex: 1
   slider: {fileID: 2003381665}
   loadingScreen: {fileID: 218202582}
---- !u!4 &28877700 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33,
-    type: 2}
-  m_PrefabInternal: {fileID: 50967022}
 --- !u!1 &35710465
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +357,7 @@ Transform:
   m_Father: {fileID: 1859227376}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &50967022
+--- !u!1001 &75986650
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -371,7 +366,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.3696313
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: m_LocalPosition.y
@@ -379,7 +374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.74585104
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: m_LocalRotation.x
@@ -404,6 +399,22 @@ Prefab:
     - target: {fileID: 100000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
+      propertyPath: RotationModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
+      propertyPath: SizeModule.y.minMaxState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
+      propertyPath: SizeModule.z.minMaxState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed1c797ec3736704db03a0d64d010e33, type: 2}
@@ -4839,7 +4850,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 28877700}
+  - {fileID: 2086430350}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6933,6 +6944,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1884180377}
   m_Script: {fileID: 11500000, guid: cecce8d3f549de045bea5fd79de9e7cb, type: 3}
+--- !u!4 &2086430350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ed1c797ec3736704db03a0d64d010e33,
+    type: 2}
+  m_PrefabInternal: {fileID: 75986650}
 --- !u!1 &2109491941
 GameObject:
   m_ObjectHideFlags: 0
