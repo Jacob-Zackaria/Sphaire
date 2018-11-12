@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 moveVector;
 
 	public Joystick joystick;
-	public LayerMask groundLayers;
-	public float jumpVelocity = 10f;
 	public Transform camTransform;
+	public LayerMask groundLayers;
+
+	[Header("Settings")]
+	public float jumpVelocity = 10f;
 	public float moveSpeed = 10f;
 
 	void Start () {
