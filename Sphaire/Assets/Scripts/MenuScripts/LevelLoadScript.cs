@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class LevelLoadScript : MonoBehaviour {
 	public int sceneIndex;
+	public Animator animator;
 	public Slider slider;
 	public GameObject loadingScreen;
 
