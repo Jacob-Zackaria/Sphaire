@@ -210,10 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6108da796a931c44bbe54da45331525e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 1
-  animator: {fileID: 0}
-  slider: {fileID: 2003381665}
-  loadingScreen: {fileID: 218202582}
+  animator: {fileID: 84008237}
 --- !u!1 &35710465
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +428,7 @@ GameObject:
   - component: {fileID: 84008236}
   - component: {fileID: 84008235}
   - component: {fileID: 84008237}
+  - component: {fileID: 84008238}
   m_Layer: 0
   m_Name: LoadFade
   m_TagString: Untagged
@@ -508,6 +506,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &84008238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84008233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89cec34b061fba429ea17bf8fc7a3cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneIndex: 1
+  slider: {fileID: 2003381665}
+  loadingScreen: {fileID: 218202582}
 --- !u!1 &119022717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,7 +3053,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683683276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.041, y: 0.49499997, z: 0.233}
+  m_LocalPosition: {x: 0.0014, y: 0.49499997, z: 0.233}
   m_LocalScale: {x: 0.05, y: 0.1, z: 0.05}
   m_Children: []
   m_Father: {fileID: 341802751}
@@ -3107,7 +3119,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 713283041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.207, y: 0.49499997, z: 0.233}
+  m_LocalPosition: {x: 0.116, y: 0.49499997, z: 0.233}
   m_LocalScale: {x: 0.05, y: 0.1, z: 0.05}
   m_Children: []
   m_Father: {fileID: 341802751}
