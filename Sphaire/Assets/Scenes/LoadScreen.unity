@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000006, guid: 0f1a257a4b15bda4580b8619f250ddf3,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -4528,7 +4529,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   jumpVelocity: 8
-  moveSpeed: 10
+  moveSpeed: 7
 --- !u!1 &1187663793
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class InfoDisplay : MonoBehaviour {
 	public GameObject infoObject;
 	public GameObject pauseObject;
+	public GameObject optionsObject;
 	public GameObject playerJoystick;
 	public GameObject cameraJoystick;
 	public GameObject jumpButton;
@@ -13,6 +14,7 @@ public class InfoDisplay : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player")) {
 			Handheld.Vibrate();
 			pauseObject.SetActive(false);
+			optionsObject.SetActive(false);
 
 			playerJoystick.SetActive(false);
 			cameraJoystick.SetActive(false);

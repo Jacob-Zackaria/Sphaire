@@ -7,7 +7,7 @@ public class LevelLoadScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
-			Vibration.Vibrate();
+			Vibration.Vibrate(1000);
 			animator.SetTrigger("Fade_Out_Trigger");
 		}
 	}
