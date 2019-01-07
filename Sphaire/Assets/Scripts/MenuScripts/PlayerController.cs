@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 		if(moveVector != Vector3.zero)
 		{
 			rb.AddForce(moveVector * moveSpeed);
-		}
+		} 
 	}
 
 	public void JumpVertical() {
