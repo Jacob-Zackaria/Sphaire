@@ -7,9 +7,6 @@ public class FadeComplete : MonoBehaviour {
 	public int sceneIndex;
 	public Slider slider;
 	public GameObject loadingScreen;
-	/* public void LoadLevel() {
-		StartCoroutine(LoadAsynchronously(sceneIndex));
-	}*/
 
 	IEnumerator LoadAsynchronously(int sceneIndex) {
 		AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);

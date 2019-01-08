@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SphaireEnter
   - Floor
+  - Enemy
   layers:
   - Default
   - TransparentFX
