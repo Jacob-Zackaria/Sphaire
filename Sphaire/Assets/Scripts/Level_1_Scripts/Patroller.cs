@@ -56,7 +56,7 @@ public class Patroller : MonoBehaviour {
 			{
 				anim.SetBool("enemyJump", false);
 			}
-		}
+		} 
 		else
 		{
 			anim.SetBool("enemyJump", false);
@@ -70,6 +70,7 @@ public class Patroller : MonoBehaviour {
 				}
 			}
 		}
+		//anim.SetFloat("Forward", agent.velocity.sqrMagnitude);
 	}
 
 	IEnumerator GoToNextPoint()
