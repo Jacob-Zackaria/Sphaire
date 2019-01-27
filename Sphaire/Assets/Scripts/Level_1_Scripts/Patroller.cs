@@ -46,7 +46,10 @@ public class Patroller : MonoBehaviour {
 		}
 		if(CanSeeTarget())
 		{
-			agent.SetDestination(target.transform.position);
+			if(target != null)
+			{
+				agent.SetDestination(target.transform.position);
+			}
 			patrolling = false;
 			if(agent.remainingDistance < agent.stoppingDistance)
 			{
@@ -70,7 +73,7 @@ public class Patroller : MonoBehaviour {
 				}
 			}
 		}
-		//anim.SetFloat("Forward", agent.velocity.sqrMagnitude);
+		//anim.SetFloat("forward", agent.velocity.sqrMagnitude);
 	}
 
 	IEnumerator GoToNextPoint()
@@ -89,18 +92,21 @@ public class Patroller : MonoBehaviour {
 	bool CanSeeTarget()
 	{
 		bool canSee = false;	
-		Ray ray = new Ray(eye.position, target.transform.position - eye.position);
-		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit))
+		if(target != null)
 		{
-			if(hit.transform != target)
+			Ray ray = new Ray(eye.position, target.transform.position - eye.position);
+			RaycastHit hit;
+			if(Physics.Raycast(ray, out hit))
 			{
-				canSee = false;
-			}
-			else
-			{
-				lastKnownPosition = target.transform.position;
-				canSee = true;
+				if(hit.transform != target)
+				{
+					canSee = false;
+				}
+				else
+				{
+					lastKnownPosition = target.transform.position;
+					canSee = true;
+				}
 			}
 		}
 		return canSee;
@@ -110,8 +116,8 @@ public class Patroller : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player"))
 		{
 			playerHealthBar.value += 0.3f;
-			Instantiate(explosion, transform.position, transform.rotation);
 			Destroy(this.gameObject);
+			Instantiate(explosion, transform.position, transform.rotation);
 		}
 	}
 }

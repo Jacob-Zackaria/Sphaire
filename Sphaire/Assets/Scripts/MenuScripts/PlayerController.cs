@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody rb;
 	private SphereCollider col;
 	private Vector3 moveVector;
+	public PlayerDeath newCheckpoint;
 
 	[Tooltip("Input player joystick")]
 	public Joystick joystick;
@@ -52,6 +53,13 @@ public class PlayerController : MonoBehaviour {
 		Vector3 dir = camTransform.TransformDirection(moveVector);
 		dir.Set(dir.x, 0, dir.z);
 		return (dir.normalized * moveVector.magnitude);
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if(other.gameObject.CompareTag("Respawn"))
+		{
+			newCheckpoint.ChangeCheckpoint(other.transform.position);
+		}
 	}
 
 }
