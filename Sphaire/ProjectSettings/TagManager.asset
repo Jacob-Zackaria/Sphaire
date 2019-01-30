@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SphaireEnter
-  - Floor
+  - Shootable
   - Enemy
+  - Floor
+  - SF_Door
+  - SphaireEnter
   layers:
   - Default
   - TransparentFX
@@ -16,12 +18,12 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Character
-  - Ignore Jump
-  - CollisionIgnore
-  - IgnoreCollisionAndJump
+  - Lighting
+  - Ground
   - 
+  - IgnoreJump
+  - IgnoreCollision
+  - IgnoreCollisionandJump
   - 
   - 
   - 
@@ -41,9 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 4280589363
     locked: 0
