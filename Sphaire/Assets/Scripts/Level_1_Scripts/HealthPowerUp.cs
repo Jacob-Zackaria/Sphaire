@@ -21,6 +21,7 @@ public class HealthPowerUp : MonoBehaviour
             //Create VFX Effects.
             Instantiate(energyExplosion, transform.position, transform.rotation);
 
+
             //Apply Health.
             playerHealthbar.value -= 0.6f;
 

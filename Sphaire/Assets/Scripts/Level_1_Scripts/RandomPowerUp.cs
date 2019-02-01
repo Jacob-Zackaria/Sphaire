@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvicibilityPowerUp : MonoBehaviour
+public class RandomPowerUp : MonoBehaviour
 {
     public GameObject energyExplosion;
+    public GameObject player;
 
     void Update()
     {
@@ -21,11 +22,20 @@ public class InvicibilityPowerUp : MonoBehaviour
             //Create VFX Effects.
             Instantiate(energyExplosion, transform.position, transform.rotation);
 
-            //Apply Invicibility.
-            
-
-            //Destroy Object.
-            Destroy(this);
+            //Apply Random Powers.
+            StartCoroutine("SizeUp");
         }
     }
+
+    //Size Up Power.
+    IEnumerator SizeUp()
+    {
+        player.GetComponent<Animation>().Play("PlayerSizeUp");
+        yield return new WaitForSeconds(15f);
+        player.GetComponent<Animation>().Play("PlayerSizeDown");
+        yield return new WaitForSeconds(2f);
+
+        //Destroy Object.
+        Destroy(this);
+    } 
 }
