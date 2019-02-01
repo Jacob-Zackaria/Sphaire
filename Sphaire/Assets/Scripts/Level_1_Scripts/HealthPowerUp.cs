@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HealthPowerUp : MonoBehaviour
 {
     public Slider playerHealthbar;
+    public GameObject energyExplosion;
 
     void Update()
     {
@@ -18,7 +19,7 @@ public class HealthPowerUp : MonoBehaviour
             GetComponent<MeshRenderer>().enabled = false;
 
             //Create VFX Effects.
-        
+            Instantiate(energyExplosion, transform.position, transform.rotation);
 
             //Apply Health.
             playerHealthbar.value -= 0.6f;

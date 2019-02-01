@@ -129,7 +129,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8197ee08c6dca49caabb2e860ced7eb5, type: 2}
+  - {fileID: 2100000, guid: 78897afbd31d9d8449016e50a70a36a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176,3 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthbar: {fileID: 0}
+  energyExplosion: {fileID: 1558279185406795741, guid: 05a00d61fbff1024bb7ca36186d08db0,
+    type: 3}
