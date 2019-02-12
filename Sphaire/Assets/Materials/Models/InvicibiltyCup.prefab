@@ -90,10 +90,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.27404594
-  m_Height: 0.8670376
+  m_Radius: 0.28660333
+  m_Height: 0.96777827
   m_Direction: 1
-  m_Center: {x: 0.000000029802322, y: 0.4335182, z: -0.006911069}
+  m_Center: {x: 0.00000009977062, y: 0.42862058, z: 0.0017188097}
 --- !u!114 &323122369207019768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyExplosion: {fileID: 3884623674609418606, guid: d28c62aa17fb7544385f98b3260aafb6,
     type: 3}
+  invincibilityLength: 15
+  playerDeath: {fileID: 0}
 --- !u!1 &7771150025821940010
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,10 +8,15 @@ public class PlayerController : MonoBehaviour {
 	private SphereCollider col;
 	private AudioSource jumpAudio;
 	private AudioSource jumpLandAudio;
-
+	private float knockBackCounter;
 	private AudioSource[] jaudio;
 	private Vector3 moveVector;
+	private float Horizontal;
+	private float Vertical;
+
 	public PlayerDeath newCheckpoint;
+	public float knockBackTime;
+	public float knockBackForce;
 
 	[Tooltip("Input player joystick")]
 	public Joystick joystick;
@@ -39,12 +44,27 @@ public class PlayerController : MonoBehaviour {
 
 //Player Movement with Joystick.
 	void FixedUpdate() {
-		moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
-		moveVector = RotateWithView();
-		if(moveVector != Vector3.zero)
+		if(knockBackCounter <= 0)
 		{
-			rb.AddForce(moveVector * moveSpeed);
+			//To be changed.
+			//moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
+			Horizontal = Input.GetAxis("Horizontal");
+			Vertical = Input.GetAxis("Vertical");
+			moveVector = new Vector3(Horizontal, 0f, Vertical);
+			moveVector = RotateWithView();
+			if(moveVector != Vector3.zero)
+			{
+				rb.AddForce(moveVector * moveSpeed);
+			}
+			if(Input.GetAxis("Jump") > 0)
+			{
+				JumpVertical();
+			}
 		} 
+		else
+		{
+			knockBackCounter -= Time.deltaTime;
+		}
 	}
 
 //Jump Function.
@@ -82,5 +102,13 @@ public class PlayerController : MonoBehaviour {
         if (collision.relativeVelocity.magnitude > 4f)
             jumpLandAudio.Play();
     }
+
+//Knockback Player on taking Damage.
+	public void Knockback(Vector3 direction)
+	{
+		knockBackCounter = knockBackTime;
+
+		rb.AddForce(direction * knockBackForce);
+	}
 
 }

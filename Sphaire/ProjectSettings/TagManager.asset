@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - SF_Door
   - SphaireEnter
+  - Bomb
   layers:
   - Default
   - TransparentFX

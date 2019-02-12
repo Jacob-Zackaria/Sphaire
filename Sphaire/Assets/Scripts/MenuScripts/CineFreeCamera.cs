@@ -6,8 +6,8 @@ using Cinemachine;
 public class CineFreeCamera : MonoBehaviour {
 
 	private CinemachineFreeLook freeLookCam;
-	private float sensitivityX = 3.0f;
-    private float sensitivityY = 0.01f;
+	public float sensitivityX = 5.0f;
+    public float sensitivityY = 0.01f;
 	public Joystick joystick;
 
 	void Start () {

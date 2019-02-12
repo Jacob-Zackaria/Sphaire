@@ -5,6 +5,8 @@ using UnityEngine;
 public class InvicibilityPowerUp : MonoBehaviour
 {
     public GameObject energyExplosion;
+    public float invincibilityLength;
+    public PlayerDeath playerDeath;
 
     void Update()
     {
@@ -15,17 +17,17 @@ public class InvicibilityPowerUp : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player"))
         {
-            //Make Object Invincible.
+            //Make this Object Invincible.
             GetComponent<MeshRenderer>().enabled = false;
 
             //Create VFX Effects.
             Instantiate(energyExplosion, transform.position, transform.rotation);
 
             //Apply Invicibility.
-            
+            playerDeath.invincibilityCounter = invincibilityLength;
 
             //Destroy Object.
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

@@ -26,7 +26,7 @@ public class HealthPowerUp : MonoBehaviour
             playerHealthbar.value -= 0.6f;
 
             //Destroy Object.
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
         

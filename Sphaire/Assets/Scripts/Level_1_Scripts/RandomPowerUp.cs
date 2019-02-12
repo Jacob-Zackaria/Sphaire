@@ -18,6 +18,7 @@ public class RandomPowerUp : MonoBehaviour
         {
             //Make Object Invincible.
             GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<Collider>().enabled = false;
 
             //Create VFX Effects.
             Instantiate(energyExplosion, transform.position, transform.rotation);
@@ -36,6 +37,6 @@ public class RandomPowerUp : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         //Destroy Object.
-        Destroy(this);
+        Destroy(gameObject);
     } 
 }

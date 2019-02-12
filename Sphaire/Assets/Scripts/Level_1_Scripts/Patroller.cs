@@ -112,12 +112,4 @@ public class Patroller : MonoBehaviour {
 		return canSee;
 	}
 
-	private void OnTriggerEnter(Collider other) {
-		if(other.gameObject.CompareTag("Player"))
-		{
-			playerHealthBar.value += 0.3f;
-			Destroy(this.gameObject);
-			Instantiate(explosion, transform.position, transform.rotation);
-		}
-	}
 }

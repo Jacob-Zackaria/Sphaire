@@ -10,6 +10,7 @@ public class InfoDisplay : MonoBehaviour {
 	public GameObject cameraJoystick;
 	public GameObject jumpButton;
 	public GameObject playerHealthBar;
+	public GameObject coinSystem;
 
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
@@ -20,6 +21,7 @@ public class InfoDisplay : MonoBehaviour {
 			playerJoystick.SetActive(false);
 			cameraJoystick.SetActive(false);
 			jumpButton.SetActive(false);
+			coinSystem.SetActive(false);
 			
 			infoObject.SetActive(true);
 

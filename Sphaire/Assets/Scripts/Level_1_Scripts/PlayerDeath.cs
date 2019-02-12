@@ -5,22 +5,39 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour {
+//Variables.
 	public GameObject bloodScreen;
 	private Image blood;
 	public GameObject playerExplosion;
 	public GameObject gameOverScreen;
 	public GameObject player;
 	public Slider playerHealthBar;
+	[HideInInspector]
+	public float invincibilityCounter;
 
 	private Vector3 lastCheckpoint;
-	private Vector3 spawnPosition;
+	private Renderer playerRenderer;
 
+//Initialising Values.
 	private void Start() {
-		spawnPosition = new Vector3(0f, 0f, 0f);
-		lastCheckpoint = player.transform.position + spawnPosition;
+		playerRenderer = player.GetComponent<MeshRenderer>();
+		lastCheckpoint = player.transform.position;
 		blood = bloodScreen.GetComponent<Image>();
 	} 
+
+//Player Blood screen and invicibility status.
 	private void Update() {
+		if(invincibilityCounter > 0)
+		{
+			invincibilityCounter -= Time.deltaTime;
+			playerRenderer.enabled = !playerRenderer.enabled;
+		}
+
+		if(invincibilityCounter < 0)
+		{
+			playerRenderer.enabled = true;
+		}
+		
 		Color tempColor = blood.color;
 
 		if(playerHealthBar.value >= 1 && player != null)	
@@ -39,7 +56,8 @@ public class PlayerDeath : MonoBehaviour {
 		tempColor.a = Mathf.Clamp(playerHealthBar.value, 0, 255);
 		blood.color =  tempColor;
 	} 
-		
+
+//Coroutine to wait for player explosion.		
 	IEnumerator GameOverScene()
 	{
 		player.SetActive(false);
@@ -49,6 +67,7 @@ public class PlayerDeath : MonoBehaviour {
 		gameOverScreen.SetActive(true);
 	}
 
+//Load last checkpoint.
 	public void LoadCheckpoint()
 	{
 		player.SetActive(true);
@@ -56,16 +75,19 @@ public class PlayerDeath : MonoBehaviour {
 		gameOverScreen.SetActive(false);
 	}
 
+//Create new checkpoint.
 	public void ChangeCheckpoint(Vector3 changeCheckpoint)
 	{
-		lastCheckpoint = changeCheckpoint + spawnPosition;
+		lastCheckpoint = changeCheckpoint;
 	}
 
+//Restart level.
 	public void Restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
+//Exit to main menu.
 	public void ExitGame()
 	{
 		SceneManager.LoadScene("LoadScreen");
