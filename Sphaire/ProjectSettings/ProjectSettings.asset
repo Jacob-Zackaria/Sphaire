@@ -14,15 +14,15 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: ICEBOX
   productName: Sphaire
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 4e90b45650b4846418d0050184186971, type: 3}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 1, g: 0.020645875, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 0
+  m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
@@ -39,8 +39,13 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_SplashScreenLogos:
+  - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
+    duration: 2
+  - logo: {fileID: 21300000, guid: 556921bccbecc8b4cb92c8013aaa88d1, type: 3}
+    duration: 3.2
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 556921bccbecc8b4cb92c8013aaa88d1,
+    type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -106,6 +111,11 @@ PlayerSettings:
   xboxOneDisableEsram: 0
   xboxOnePresentImmediateThreshold: 0
   switchQueueCommandMemory: 0
+  switchQueueControlMemory: 16384
+  switchQueueComputeMemory: 262144
+  switchNVNShaderPoolsGranularity: 33554432
+  switchNVNDefaultPoolsGranularity: 16777216
+  switchNVNOtherPoolsGranularity: 16777216
   vulkanEnableSetSRGBWrite: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -242,7 +252,7 @@ PlayerSettings:
   templateDefaultScene: 
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
+  androidSplashScreen: {fileID: 2800000, guid: 34f6bfa5c704bdf4e86f19a6cde67ec5, type: 3}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
@@ -261,99 +271,123 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 872ffd21c2f529e4a8744154d7d529c8, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: ca591f60f2af3154288f17f1eacb5576, type: 3}
+      - {fileID: 2800000, guid: ca591f60f2af3154288f17f1eacb5576, type: 3}
       m_Width: 432
       m_Height: 432
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: b7821f130960b7046b46ead935361e2a, type: 3}
+      - {fileID: 2800000, guid: b7821f130960b7046b46ead935361e2a, type: 3}
       m_Width: 324
       m_Height: 324
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: c42df9b639b48f746b6b5719f954405f, type: 3}
+      - {fileID: 2800000, guid: c42df9b639b48f746b6b5719f954405f, type: 3}
       m_Width: 216
       m_Height: 216
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
       m_Width: 162
       m_Height: 162
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 752496824e40b6d44ae8f1334e4a80a6, type: 3}
+      - {fileID: 2800000, guid: 752496824e40b6d44ae8f1334e4a80a6, type: 3}
       m_Width: 108
       m_Height: 108
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
       m_Width: 81
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: ca591f60f2af3154288f17f1eacb5576, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: b7821f130960b7046b46ead935361e2a, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: c42df9b639b48f746b6b5719f954405f, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 752496824e40b6d44ae8f1334e4a80a6, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
       m_Width: 36
       m_Height: 36
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: ca591f60f2af3154288f17f1eacb5576, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: b7821f130960b7046b46ead935361e2a, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 0
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: c42df9b639b48f746b6b5719f954405f, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 0
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 0
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 752496824e40b6d44ae8f1334e4a80a6, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 0
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: eff5ccf8cd1ce8a41a31e3adb4e593d2, type: 3}
       m_Width: 36
       m_Height: 36
       m_Kind: 0
@@ -552,6 +586,7 @@ PlayerSettings:
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
   switchUserAccountLockEnabled: 0
+  switchSystemResourceMemory: 16777216
   switchSupportedNpadStyles: 3
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
@@ -636,8 +671,10 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 0}
-  splashScreenBackgroundSourcePortrait: {fileID: 0}
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 34f6bfa5c704bdf4e86f19a6cde67ec5,
+    type: 3}
+  splashScreenBackgroundSourcePortrait: {fileID: 21300000, guid: 34f6bfa5c704bdf4e86f19a6cde67ec5,
+    type: 3}
   spritePackerPolicy: 
   webGLMemorySize: 256
   webGLExceptionSupport: 1

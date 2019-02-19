@@ -16,7 +16,7 @@ public class CreditsDisplay : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
-			Vibration.Vibrate(1000);
+			Vibration.Vibrate(1500);
 			audioSource.Stop();
 			menuObject.SetActive(false);
 
