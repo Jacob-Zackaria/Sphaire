@@ -215,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6305283}
   - component: {fileID: 6305284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BottomRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6305282}
-  m_LocalRotation: {x: -0.05444448, y: 0.04098777, z: 0.60005045, w: 0.7970542}
+  m_LocalRotation: {x: -0.054444548, y: 0.040987678, z: 0.60005045, w: 0.7970542}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5883,7 +5883,7 @@ GameObject:
   - component: {fileID: 291730222}
   - component: {fileID: 291730221}
   - component: {fileID: 291730220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53730,7 +53730,7 @@ GameObject:
   - component: {fileID: 727758529}
   - component: {fileID: 727758528}
   - component: {fileID: 727758527}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CM FreeLook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54617,7 +54617,7 @@ GameObject:
   - component: {fileID: 778035570}
   - component: {fileID: 778035569}
   - component: {fileID: 778035568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83214,7 +83214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1908691566}
   - component: {fileID: 1908691567}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiddleRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83228,7 +83228,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908691565}
-  m_LocalRotation: {x: 0.0017905321, y: -0.013559531, z: -0.9913006, w: -0.13090537}
+  m_LocalRotation: {x: 0.0017906523, y: -0.013559524, z: -0.9913006, w: -0.13090535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -83669,7 +83669,9 @@ GameObject:
   - component: {fileID: 1926607405}
   - component: {fileID: 1926607404}
   - component: {fileID: 1926607403}
-  m_Layer: 0
+  - component: {fileID: 1926607408}
+  - component: {fileID: 1926607407}
+  m_Layer: 10
   m_Name: Main Camera (1)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -83759,7 +83761,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -83770,7 +83772,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926607402}
-  m_LocalRotation: {x: -0.000000009563674, y: 0.99226314, z: -0.12415295, w: -0.00000007643541}
+  m_LocalRotation: {x: 8.6386376e-10, y: 0.99226314, z: -0.12415295, w: 0.000000006904222}
   m_LocalPosition: {x: 0.00000026226832, y: 0.58, z: 18.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -83778,6 +83780,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 18, y: 180, z: 0}
+--- !u!114 &1926607407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926607402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 2f0246ba62a4b2d44bea4adebe6e4054, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &1926607408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926607402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1926607406}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 1
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &1927025886
 GameObject:
   m_ObjectHideFlags: 0
@@ -85813,7 +85892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2053467151}
   - component: {fileID: 2053467152}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TopRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85827,7 +85906,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053467150}
-  m_LocalRotation: {x: -0.026037551, y: 0.01836535, z: 0.57609516, w: 0.8167614}
+  m_LocalRotation: {x: -0.026037604, y: 0.018365305, z: 0.5760952, w: 0.8167614}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -86084,7 +86163,7 @@ GameObject:
   - component: {fileID: 2075428192}
   - component: {fileID: 2075428191}
   - component: {fileID: 2075428190}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
