@@ -219,6 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 84008237}
+  sceneLoader: {fileID: 114164396300253482, guid: a4d9b1c21066dc741814ca2d93105576,
+    type: 2}
+  sceneNumber: 1
 --- !u!1 &35710465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,7 +2653,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 1
   m_OcclusionCulling: 1
@@ -2663,7 +2666,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0.0000000087662055, y: 0.99226314, z: -0.124152966, w: -0.00000007006182}
+  m_LocalRotation: {x: -0.0000000055425238, y: 0.99226314, z: -0.124152966, w: -0.00000004429731}
   m_LocalPosition: {x: 0.00000026226832, y: 0.58, z: 18.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6194,7 +6197,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360254034}
-  m_LocalRotation: {x: -0.05003668, y: 0.00034798408, z: 0.006944872, w: 0.99872315}
+  m_LocalRotation: {x: -0.050036646, y: 0.00034798463, z: 0.0069448734, w: 0.9987232}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7661,6 +7664,7 @@ GameObject:
   - component: {fileID: 1668944890}
   - component: {fileID: 1668944889}
   - component: {fileID: 1668944892}
+  - component: {fileID: 1668944893}
   m_Layer: 0
   m_Name: InfoButton
   m_TagString: Untagged
@@ -7807,6 +7811,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1668944893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668944887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6108da796a931c44bbe54da45331525e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  sceneLoader: {fileID: 0}
+  sceneNumber: 0
 --- !u!1 &1690190628
 GameObject:
   m_ObjectHideFlags: 0
@@ -8880,7 +8899,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941656621}
-  m_LocalRotation: {x: 0.031858213, y: -0.00054491573, z: -0.017092753, w: -0.9993461}
+  m_LocalRotation: {x: 0.031858206, y: -0.000544943, z: -0.017092746, w: -0.9993461}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9215,7 +9234,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975621855}
-  m_LocalRotation: {x: 0.068146594, y: -0.0004928457, z: -0.0072148857, w: -0.99764913}
+  m_LocalRotation: {x: 0.06814659, y: -0.00049286993, z: -0.0072148796, w: -0.99764913}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

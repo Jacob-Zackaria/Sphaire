@@ -4,9 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class FadeComplete : MonoBehaviour {
+	[HideInInspector]
 	public int sceneIndex;
+	
 	public Slider slider;
 	public GameObject loadingScreen;
+
+	public void LoadScene(int sceneIndex)
+	{
+		StartCoroutine(LoadAsynchronously(sceneIndex));
+	}
 
 	IEnumerator LoadAsynchronously(int sceneIndex) {
 		AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
