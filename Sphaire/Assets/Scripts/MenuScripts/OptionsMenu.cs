@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour {
 
@@ -22,8 +21,4 @@ public class OptionsMenu : MonoBehaviour {
 		QualitySettings.SetQualityLevel(qualityIndex);
 	}
 
-	//Load Tutorial Scene.
-	public void LoadTutorial() {
-		SceneManager.LoadSceneAsync("TutorialScene");
-	}
 }

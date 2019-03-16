@@ -10,9 +10,14 @@ public class LevelLoadScript : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
 			Vibration.Vibrate(1500);
-			sceneLoader.sceneIndex = sceneNumber;
-			animator.SetTrigger("Fade_Out_Trigger");
+			LoadSceneFunction();
 		}
+	}
+
+	public void LoadSceneFunction()
+	{
+		sceneLoader.sceneIndex = sceneNumber;
+		animator.SetTrigger("Fade_Out_Trigger");
 	}
 
 	
