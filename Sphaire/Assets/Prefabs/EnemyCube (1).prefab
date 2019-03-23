@@ -134,7 +134,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   target: {fileID: 0}
-  lookRadius: 5
+  lookRadius: 3
 --- !u!114 &1118659436246063958
 MonoBehaviour:
   m_ObjectHideFlags: 0
