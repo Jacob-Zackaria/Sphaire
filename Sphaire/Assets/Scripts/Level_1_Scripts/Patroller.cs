@@ -6,29 +6,34 @@ using UnityEngine.AI;
 
 public class Patroller : MonoBehaviour {
 	NavMeshAgent agent;
+
 	bool patrolling;
+	bool arrived;
+
 	public Transform[] patrolTargets;
 	public Transform target;
-	public Transform eye;
-	public float enemyForce = 10f;
-	Vector3 lastKnownPosition;
-	public Slider playerHealthBar;
-	public GameObject explosion;
+	public float lookRadius = 10f;
+	
 	private int destPoint;
-	private Animator anim;
-	bool arrived;
+	private float distance;
 	
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
-		anim = GetComponent<Animator>();
-		lastKnownPosition = transform.position;
 	}
-	
+
+//Follow player if player enters the enemy radius. 	
 	void Update () {
 		if(agent.pathPending)
 		{
 			return;
 		}
+
+		distance = Vector3.Distance(target.position, transform.position);
+		if(distance <= lookRadius)
+		{
+			agent.SetDestination(target.position);
+		}
+
 		if(patrolling)
 		{
 			if(agent.remainingDistance < agent.stoppingDistance)
@@ -44,38 +49,13 @@ public class Patroller : MonoBehaviour {
 				arrived = false;
 			}
 		}
-		if(CanSeeTarget())
-		{
-			if(target != null)
-			{
-				agent.SetDestination(target.transform.position);
-			}
-			patrolling = false;
-			if(agent.remainingDistance < agent.stoppingDistance)
-			{
-				anim.SetBool("enemyJump", true);
-			}
-			else
-			{
-				anim.SetBool("enemyJump", false);
-			}
-		} 
 		else
 		{
-			anim.SetBool("enemyJump", false);
-			if(!patrolling)
-			{
-				agent.SetDestination(lastKnownPosition);
-				if(agent.remainingDistance < agent.stoppingDistance)
-				{
-					patrolling = true;
-					StartCoroutine("GoToNextPoint");
-				}
-			}
+			StartCoroutine("GoToNextPoint");
 		}
-		//anim.SetFloat("forward", agent.velocity.sqrMagnitude);
 	}
 
+//Finds next point to patroll.
 	IEnumerator GoToNextPoint()
 	{
 		if(patrolTargets.Length == 0)
@@ -89,27 +69,10 @@ public class Patroller : MonoBehaviour {
 		destPoint = Random.Range(0, patrolTargets.Length);
 	}
 
-	bool CanSeeTarget()
-	{
-		bool canSee = false;	
-		if(target != null)
-		{
-			Ray ray = new Ray(eye.position, target.transform.position - eye.position);
-			RaycastHit hit;
-			if(Physics.Raycast(ray, out hit))
-			{
-				if(hit.transform != target)
-				{
-					canSee = false;
-				}
-				else
-				{
-					lastKnownPosition = target.transform.position;
-					canSee = true;
-				}
-			}
-		}
-		return canSee;
+//Draws a sphere for finding enemy radius.
+	private void OnDrawGizmosSelected() {
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, lookRadius);	
 	}
 
 }
