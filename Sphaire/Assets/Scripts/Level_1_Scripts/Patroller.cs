@@ -12,10 +12,22 @@ public class Patroller : MonoBehaviour {
 
 	public Transform[] patrolTargets;
 	public Transform target;
+
+	[HideInInspector]
+	public Transform destTransform;
+
 	public float lookRadius = 10f;
 	
 	private int destPoint;
 	private float distance;
+	
+	void Awake() {
+		if(patrolTargets.Length == 0)
+			return;
+
+		destPoint = Random.Range(0, patrolTargets.Length);
+		destTransform = patrolTargets[destPoint];
+	}
 	
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
@@ -28,8 +40,7 @@ public class Patroller : MonoBehaviour {
 			return;
 		}
 
-		distance = Vector3.Distance(target.position, transform.position);
-		if(distance <= lookRadius)
+		if(insideEnemyRadius())
 		{
 			agent.SetDestination(target.position);
 		}
@@ -65,14 +76,21 @@ public class Patroller : MonoBehaviour {
 		patrolling = true;
 		yield return new WaitForSeconds(2f);
 		arrived = false;
-		agent.destination = patrolTargets[destPoint].position;
+
 		destPoint = Random.Range(0, patrolTargets.Length);
+		destTransform = patrolTargets[destPoint];
+		agent.destination = destTransform.position;
 	}
 
 //Draws a sphere for finding enemy radius.
 	private void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, lookRadius);	
+	}
+
+	public bool insideEnemyRadius() {
+		distance = Vector3.Distance(target.position, transform.position);
+		return(distance <= lookRadius);
 	}
 
 }
