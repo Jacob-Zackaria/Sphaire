@@ -8,7 +8,7 @@ public class Patroller : MonoBehaviour {
 	NavMeshAgent agent;
 
 	bool patrolling;
-	bool arrived;
+	public bool arrived;
 
 	public Transform[] patrolTargets;
 	public Transform target;
@@ -43,9 +43,18 @@ public class Patroller : MonoBehaviour {
 		if(insideEnemyRadius())
 		{
 			agent.SetDestination(target.position);
-		}
+			patrolling = false;
 
-		if(patrolling)
+			if(agent.remainingDistance < agent.stoppingDistance)
+			{
+				arrived = true;
+			}
+			else
+			{
+				arrived = false;
+			}
+		}
+		else if(patrolling)
 		{
 			if(agent.remainingDistance < agent.stoppingDistance)
 			{

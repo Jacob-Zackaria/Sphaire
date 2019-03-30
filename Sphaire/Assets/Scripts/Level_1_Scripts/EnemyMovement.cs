@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
     const float animationSmoothTime = 0.1f;
     bool isRight;
+    float rotationPercent;
+    private float attackStartTime = 2f;
+
+    public float rotationSpeed = 1f;
+    public float rotationSmoothness = 2f;
+    [Tooltip("Minimum 0 and Maximum 6")]
+    [Range(0,6)]
+    public float attackWaitTime = 4f;
 
     NavMeshAgent agent;
     Animator animator;
@@ -14,7 +23,8 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();  
+        patroller = GetComponent<Patroller>();
     }
 
     void Update()
@@ -23,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
         float speedPercent = agent.velocity.magnitude / agent.speed; 
         animator.SetFloat("Speed", speedPercent, animationSmoothTime, Time.deltaTime);
 
-
+        //Target selection.
         if(patroller.insideEnemyRadius())
         {
             target = patroller.target;
@@ -38,34 +48,64 @@ public class EnemyMovement : MonoBehaviour
         // Get our Direction we are going to Rotate.
         isRight = GetRotateDirection(transform.rotation, lookDirection);
 
-        rotationPercent = 
+        if(isRight)
+        {
+            rotationPercent = Mathf.Lerp(0f, 1f, rotationSmoothness * Time.deltaTime);
+        }
+        else
+        {
+            rotationPercent = Mathf.Lerp(0f, -1f, rotationSmoothness * Time.deltaTime);
+        } 
 
         //Enemy left and right movement animation control.
         animator.SetFloat("Strafing", rotationPercent, animationSmoothTime, Time.deltaTime);
 
-        /* // Rotate towards player
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, rotationSpeed * Time.deltaTime); */
-        
-        //Finds direction of rotaion, even if the enemy angle is 10 deg and rotated 
-        //to left to 350 deg it still gives left direction.
-        bool GetRotateDirection(Quaternion from, Quaternion to)
+        if(patroller.insideEnemyRadius())
         {
-                float fromY = from.eulerAngles.y;
-                float toY  = to.eulerAngles.y;
-                float clockWise = 0f;
-                float counterClockWise = 0f;
-        
-                if (fromY <= toY)
-                {
-                        clockWise = toY-fromY;
-                        counterClockWise = fromY + (360-toY);
-                }
-                else
-                {
-                        clockWise = (360-fromY) + toY;
-                        counterClockWise = fromY-toY;
-                }
-                return (clockWise <= counterClockWise);
+            // Rotate towards player
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, rotationSpeed * Time.deltaTime);
+
+            //Attack player.
+            if(patroller.arrived && attackStartTime < 0)
+            {
+                Attack();
+            }
         }
+
+        //Timer controls.
+        if(attackStartTime > 0)
+        {
+            attackStartTime -= Time.deltaTime;
+        }
+        
+    }
+
+    //Attacking Function.
+    private void Attack()
+    {
+        animator.SetTrigger("Attack");
+        attackStartTime = attackWaitTime;
+    }
+
+    //Finds direction of rotaion, even if the enemy angle is 10 deg and rotated 
+    //to left to 350 deg it still gives left direction.
+    bool GetRotateDirection(Quaternion from, Quaternion to)
+    {
+        float fromY = from.eulerAngles.y;
+        float toY  = to.eulerAngles.y;
+        float clockWise = 0f;
+        float counterClockWise = 0f;
+        
+        if (fromY <= toY)
+        {
+            clockWise = toY-fromY;
+            counterClockWise = fromY + (360-toY);
+        }
+        else
+        {
+            clockWise = (360-fromY) + toY;
+            counterClockWise = fromY-toY;
+        }
+        return (clockWise <= counterClockWise);
     }
 }
