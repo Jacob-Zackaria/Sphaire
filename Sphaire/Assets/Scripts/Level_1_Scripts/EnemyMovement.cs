@@ -11,9 +11,9 @@ public class EnemyMovement : MonoBehaviour
 
     public float rotationSpeed = 1f;
     public float rotationSmoothness = 2f;
-    [Tooltip("Minimum 0 and Maximum 6")]
-    [Range(0,6)]
-    public float attackWaitTime = 4f;
+    [Tooltip("Minimum 4 and Maximum 10")]
+    [Range(4, 10)]
+    public float attackWaitTime = 6f;
 
     NavMeshAgent agent;
     Animator animator;
