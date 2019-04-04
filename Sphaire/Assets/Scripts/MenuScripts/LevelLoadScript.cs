@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class LevelLoadScript : MonoBehaviour {	
 	public Animator animator;
-	public ScenesLoader sceneLoader;
 	public int sceneNumber;
+
+	private ScenesLoader sceneLoader;
+
+	private void Start() {
+		sceneLoader = animator.GetBehaviour<ScenesLoader>();
+	}
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
