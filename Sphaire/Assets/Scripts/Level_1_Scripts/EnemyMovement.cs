@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     const float animationSmoothTime = 0.1f;
     bool isRight;
     float rotationPercent;
-    private float attackStartTime = 2f;
+    private float _attackStartTime = 2f;
 
     public float rotationSpeed = 1f;
     public float rotationSmoothness = 2f;
@@ -66,16 +66,16 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, rotationSpeed * Time.deltaTime);
 
             //Attack player.
-            if(patroller.arrived && attackStartTime < 0)
+            if(patroller.arrived && _attackStartTime < 0)
             {
                 Attack();
             }
         }
 
         //Timer controls.
-        if(attackStartTime > 0)
+        if(_attackStartTime > 0)
         {
-            attackStartTime -= Time.deltaTime;
+            _attackStartTime -= Time.deltaTime;
         }
         
     }
@@ -84,7 +84,7 @@ public class EnemyMovement : MonoBehaviour
     private void Attack()
     {
         animator.SetTrigger("Attack");
-        attackStartTime = attackWaitTime;
+        _attackStartTime = attackWaitTime;
     }
 
     //Finds direction of rotaion, even if the enemy angle is 10 deg and rotated 

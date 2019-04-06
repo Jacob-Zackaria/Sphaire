@@ -32,9 +32,12 @@ public class PlayerController : MonoBehaviour {
 	[Range(0f,10f)]
 	public float moveSpeed = 10f;
 
+//Called when game starts.
+	private void Awake() {
+		rb = GetComponent<Rigidbody> ();
+	}
 //Initialising Components.
 	void Start () {
-		rb = GetComponent<Rigidbody> ();
 		col = GetComponent<SphereCollider> ();
 
 		jaudio = GetComponents<AudioSource> ();
@@ -86,6 +89,16 @@ public class PlayerController : MonoBehaviour {
 		Vector3 dir = camTransform.TransformDirection(moveVector);
 		dir.Set(dir.x, 0, dir.z);
 		return (dir.normalized * moveVector.magnitude);
+	}
+
+//Disable movements when player is disabled.
+	private void OnDisable() {
+		rb.isKinematic = true;
+	}
+
+//Enable movements when player is enabled.
+	private void OnEnable() {
+		rb.isKinematic = false;
 	}
 
 //Saving new Checkpoint.
