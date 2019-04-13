@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267994162519243168}
+  - component: {fileID: 3468386947886582624}
   m_Layer: 0
   m_Name: PA_WarriorRtRearLeg2
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 4267994162519243170}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3468386947886582624
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267994162518943104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 6, z: 3}
+  m_Center: {x: 11, y: 0, z: 0}
 --- !u!1 &4267994162518943106
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,11 +504,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267994162519243194}
-  - component: {fileID: 4267994162518943125}
   - component: {fileID: 4267994162528294490}
   - component: {fileID: 4267994162518943127}
   - component: {fileID: 4267994162518943129}
-  - component: {fileID: 4267994162518943131}
+  - component: {fileID: 1395132040234241659}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -518,19 +531,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4267994162518943125
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4267994162518943130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7469981, y: 0.4466362, z: 1.0665779}
-  m_Center: {x: -0.006657958, y: 0.20190334, z: -0.19973946}
 --- !u!95 &4267994162528294490
 Animator:
   serializedVersion: 3
@@ -584,14 +584,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42a4d5aec4dbc44491c788ba78d0218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrived: 0
   patrolTargets:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   target: {fileID: 0}
+  destTransform: {fileID: 0}
   lookRadius: 3
---- !u!114 &4267994162518943131
+--- !u!114 &1395132040234241659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -600,15 +602,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4267994162518943130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11a42e855111fc64c90aa8b07e03d00b, type: 3}
+  m_Script: {fileID: 11500000, guid: b552c8d96b5880e468a9f86fd5cea9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombExplosion: {fileID: 1850175274783514, guid: 41a60e49e3917494faec4d6ec104691a,
-    type: 3}
-  player: {fileID: 0}
-  playerHealthBar: {fileID: 0}
-  invincibilityLength: 7
-  playerDeath: {fileID: 0}
+  rotationSpeed: 1
+  rotationSmoothness: 20
+  attackWaitTime: 5
 --- !u!1 &4267994162518943132
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267994162519243136}
+  - component: {fileID: 7675982476193420800}
   m_Layer: 0
   m_Name: swarmWarriorRtRearLeg3
   m_TagString: Untagged
@@ -707,6 +707,19 @@ Transform:
   m_Father: {fileID: 4267994162519243168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7675982476193420800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267994162518943200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 18, y: 4.7, z: 3}
+  m_Center: {x: 8.6, y: -2.7, z: 0}
 --- !u!1 &4267994162518943202
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267994162519243140}
+  - component: {fileID: 5669220568069714498}
   m_Layer: 0
   m_Name: swarmWarriorRtRearLeg5
   m_TagString: Untagged
@@ -767,6 +781,19 @@ Transform:
   m_Father: {fileID: 4267994162519243142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5669220568069714498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267994162518943204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 17, z: 3}
+  m_Center: {x: 0, y: -8.6, z: 0}
 --- !u!1 &4267994162518943206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4267994162519243164}
+  - component: {fileID: 4411399218576867058}
   m_Layer: 0
   m_Name: PA_WarriorWeapon1
   m_TagString: Untagged
@@ -1136,6 +1164,19 @@ Transform:
   m_Father: {fileID: 4267994162519243198}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4411399218576867058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267994162518943228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.8, y: 9.6, z: 11.2}
+  m_Center: {x: -8.3, y: 0, z: 0}
 --- !u!1 &4267994162518943230
 GameObject:
   m_ObjectHideFlags: 0
