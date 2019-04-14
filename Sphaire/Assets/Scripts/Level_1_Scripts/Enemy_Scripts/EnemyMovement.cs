@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
     [Tooltip("Minimum 4 and Maximum 10")]
     [Range(4, 10)]
     public float attackWaitTime = 6f;
+    [Tooltip("Right hand box collider")]
+    public BoxCollider rightBoxCollider;
 
     NavMeshAgent agent;
     Animator animator;
@@ -107,5 +109,22 @@ public class EnemyMovement : MonoBehaviour
             counterClockWise = fromY-toY;
         }
         return (clockWise <= counterClockWise);
+    }
+
+    //Animation event functions.
+    public void EnableBoxTrigger()
+    {
+        if (rightBoxCollider != null)
+        {
+            rightBoxCollider.enabled = true;
+        }
+    }
+
+    public void DisableBoxTrigger()
+    {
+        if (rightBoxCollider != null)
+        {
+            rightBoxCollider.enabled = false;
+        }
     }
 }

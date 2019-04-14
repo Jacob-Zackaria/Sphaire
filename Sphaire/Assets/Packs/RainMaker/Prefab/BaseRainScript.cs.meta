@@ -1,10 +1,19 @@
 fileFormatVersion: 2
 guid: 5fadb2792073be54387ad764e856d440
-timeCreated: 1448044358
-licenseType: Store
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Camera: {instanceID: 0}
+  - RainSoundLight: {instanceID: 0}
+  - RainSoundMedium: {instanceID: 0}
+  - RainSoundHeavy: {instanceID: 0}
+  - RainFallParticleSystem: {instanceID: 0}
+  - RainExplosionParticleSystem: {instanceID: 0}
+  - RainMistParticleSystem: {instanceID: 0}
+  - WindSound: {instanceID: 0}
+  - WindZone: {instanceID: 0}
+  - sfxMixer: {fileID: 24300002, guid: a9f92b20032c8864aa6d657c404c730b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

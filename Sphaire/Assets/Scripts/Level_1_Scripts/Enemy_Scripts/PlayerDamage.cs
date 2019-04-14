@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerDamage : MonoBehaviour
 {
     private Vector3 _hitDirection;
-
     
     public PlayerController player;
     public float invincibilityLength;
@@ -30,9 +29,12 @@ public class PlayerDamage : MonoBehaviour
                 if (this.CompareTag("Bomb"))
                 {
                     playerHealthBar.value += 0.5f;
-
                     GetComponent<MeshRenderer>().enabled = false;
-                    Instantiate(bombExplosion, transform.position, transform.rotation);
+
+                    if(bombExplosion != null)
+                    {
+                        Instantiate(bombExplosion, transform.position, transform.rotation);
+                    }
 
                     Destroy(gameObject);
                 }

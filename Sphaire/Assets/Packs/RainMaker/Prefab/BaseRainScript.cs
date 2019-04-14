@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace DigitalRuby.RainMaker
 {
@@ -63,6 +64,9 @@ namespace DigitalRuby.RainMaker
 
         [Tooltip("Whether wind should be enabled.")]
         public bool EnableWind = true;
+
+        [Tooltip("Mixer Group for Audio")]
+        public AudioMixerGroup sfxMixer;
 
         protected LoopingAudioSource audioSourceRainLight;
         protected LoopingAudioSource audioSourceRainMedium;
@@ -225,10 +229,10 @@ namespace DigitalRuby.RainMaker
                 Camera = Camera.main;
             }
 
-            audioSourceRainLight = new LoopingAudioSource(this, RainSoundLight);
-            audioSourceRainMedium = new LoopingAudioSource(this, RainSoundMedium);
-            audioSourceRainHeavy = new LoopingAudioSource(this, RainSoundHeavy);
-            audioSourceWind = new LoopingAudioSource(this, WindSound);
+            audioSourceRainLight = new LoopingAudioSource(this, RainSoundLight, sfxMixer);
+            audioSourceRainMedium = new LoopingAudioSource(this, RainSoundMedium, sfxMixer);
+            audioSourceRainHeavy = new LoopingAudioSource(this, RainSoundHeavy, sfxMixer);
+            audioSourceWind = new LoopingAudioSource(this, WindSound, sfxMixer);
 
             if (RainFallParticleSystem != null)
             {
@@ -312,16 +316,19 @@ namespace DigitalRuby.RainMaker
     /// </summary>
     public class LoopingAudioSource
     {
+
         public AudioSource AudioSource { get; private set; }
         public float TargetVolume { get; private set; }
 
-        public LoopingAudioSource(MonoBehaviour script, AudioClip clip)
+
+        public LoopingAudioSource(MonoBehaviour script, AudioClip clip, AudioMixerGroup sfxMixer)
         {
             AudioSource = script.gameObject.AddComponent<AudioSource>();
             AudioSource.loop = true;
             AudioSource.clip = clip;
             AudioSource.playOnAwake = false;
             AudioSource.volume = 0.0f;
+            AudioSource.outputAudioMixerGroup = sfxMixer;
             AudioSource.Stop();
             TargetVolume = 1.0f;
         }
