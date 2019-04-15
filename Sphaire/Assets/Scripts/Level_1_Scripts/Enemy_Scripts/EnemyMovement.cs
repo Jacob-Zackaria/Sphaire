@@ -8,14 +8,21 @@ public class EnemyMovement : MonoBehaviour
     bool isRight;
     float rotationPercent;
     private float _attackStartTime = 2f;
+    private bool _recovered = false;
+    private bool _collapsed = false;
 
     public float rotationSpeed = 1f;
     public float rotationSmoothness = 2f;
+
     [Tooltip("Minimum 4 and Maximum 10")]
     [Range(4, 10)]
     public float attackWaitTime = 6f;
+
     [Tooltip("Right hand box collider")]
     public BoxCollider rightBoxCollider;
+
+    [Tooltip("Enemy Explosion VFX")]
+    public GameObject bombExplosion;
 
     NavMeshAgent agent;
     Animator animator;
@@ -62,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
         //Enemy left and right movement animation control.
         animator.SetFloat("Strafing", rotationPercent, animationSmoothTime, Time.deltaTime);
 
-        if(patroller.insideEnemyRadius())
+        if(patroller.insideEnemyRadius() && _collapsed == false)
         {
             // Rotate towards player
             transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, rotationSpeed * Time.deltaTime);
@@ -109,6 +116,51 @@ public class EnemyMovement : MonoBehaviour
             counterClockWise = fromY-toY;
         }
         return (clockWise <= counterClockWise);
+    }
+    //Enemy Collapse and Death.
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            if(_recovered)
+            {
+                StartCoroutine("EnemyDeath");
+            }
+            else
+            {
+                StartCoroutine("EnemyCollapse");
+            }
+        }
+    }
+
+    //Enemy Collapse.
+    IEnumerator EnemyCollapse()
+    {
+        animator.SetTrigger("Collapse");
+        agent.enabled = false;
+        _collapsed = true;
+        patroller.enabled = false;
+        yield return new WaitForSeconds(4f);
+
+        animator.SetTrigger("Recover");
+        yield return new WaitForSeconds(2f);
+        agent.enabled = true;
+        patroller.enabled = true;
+        _recovered = true;
+        _collapsed = false;
+    }
+
+    //Enemy Death.
+    IEnumerator EnemyDeath()
+    {
+        animator.SetTrigger("Dead");
+        agent.enabled = false;
+        _collapsed = true;
+        patroller.enabled = false;
+
+        yield return new WaitForSeconds(5f);
+        Instantiate(bombExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     //Animation event functions.

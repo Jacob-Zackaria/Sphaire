@@ -50,19 +50,19 @@ public class PlayerController : MonoBehaviour {
 		if(knockBackCounter <= 0)
 		{
 			//To be changed.
-			moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
-			/* Horizontal = Input.GetAxis("Horizontal");
+			//moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
+			Horizontal = Input.GetAxis("Horizontal");
 			Vertical = Input.GetAxis("Vertical");
-			moveVector = new Vector3(Horizontal, 0f, Vertical); */
+			moveVector = new Vector3(Horizontal, 0f, Vertical); 
 			moveVector = RotateWithView();
 			if(moveVector != Vector3.zero)
 			{
 				rb.AddForce(moveVector * moveSpeed);
 			}
-			/* if(Input.GetAxis("Jump") > 0)
+			if(Input.GetAxis("Jump") > 0)
 			{
 				JumpVertical();
-			} */
+			} 
 		} 
 		else
 		{

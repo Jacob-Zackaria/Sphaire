@@ -25,7 +25,7 @@ public class PlayerDamage : MonoBehaviour
                 player.Knockback(_hitDirection);
 
                 playerDeath.invincibilityCounter = invincibilityLength;
-//Take damage and if bomb explode bomb.
+//Take damage and if bomb,explode bomb.
                 if (this.CompareTag("Bomb"))
                 {
                     playerHealthBar.value += 0.5f;
