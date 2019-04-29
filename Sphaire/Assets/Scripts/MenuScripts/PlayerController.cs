@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	private float _Horizontal;
 	private float _Vertical;
 
-	public PlayerDeath newCheckpoint;
+	public GameController newCheckpoint;
 	public float knockBackTime;
 	public float knockBackForce;
 

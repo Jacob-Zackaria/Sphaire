@@ -8,23 +8,27 @@ public class PortalTextureSetup : MonoBehaviour
     public Camera cameraA;
     public Material cameramatB;
     public Material cameramatA;
+
+    private RenderTexture _renderTexture;
     void Start()
     {
         if(cameraA.targetTexture != null)
         {
             cameraA.targetTexture.Release();
         }
-        cameraA.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        cameraA.targetTexture.MarkRestoreExpected();
+        _renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        cameraA.targetTexture = _renderTexture;
         cameramatA.mainTexture = cameraA.targetTexture;
+        
 
-        if(cameraB.targetTexture != null)
+        if (cameraB.targetTexture != null)
         {
             cameraB.targetTexture.Release();
         }
-        cameraB.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        cameraB.targetTexture.MarkRestoreExpected();
+        _renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        cameraB.targetTexture = _renderTexture;
         cameramatB.mainTexture = cameraB.targetTexture;
+        
     }
 
 }

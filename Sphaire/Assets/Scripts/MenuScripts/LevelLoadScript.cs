@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelLoadScript : MonoBehaviour {	
 	public Animator animator;
-	public int sceneNumber;
+	public string sceneName;
 
 	private ScenesLoader sceneLoader;
 
@@ -14,14 +12,14 @@ public class LevelLoadScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
-			Vibration.Vibrate(1500);
+            Handheld.Vibrate();
 			LoadSceneFunction();
 		}
 	}
 
 	public void LoadSceneFunction()
 	{
-		sceneLoader.sceneIndex = sceneNumber;
+		sceneLoader.sceneName = sceneName;
 		animator.SetTrigger("Fade_Out_Trigger");
 	}
 

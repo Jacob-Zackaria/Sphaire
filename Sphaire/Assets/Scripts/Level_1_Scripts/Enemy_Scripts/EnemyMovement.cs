@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private bool _recovered = false;
     private bool _collapsed = false;
 
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 0f;
     public float rotationSmoothness = 2f;
 
     [Tooltip("Minimum 4 and Maximum 10")]

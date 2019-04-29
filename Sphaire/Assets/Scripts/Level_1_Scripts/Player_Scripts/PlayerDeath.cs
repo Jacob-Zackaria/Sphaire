@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour {
@@ -67,29 +66,4 @@ public class PlayerDeath : MonoBehaviour {
 		gameOverScreen.SetActive(true);
 	}
 
-//Load last checkpoint.
-	public void LoadCheckpoint()
-	{
-		player.SetActive(true);
-		player.transform.position = lastCheckpoint;
-		gameOverScreen.SetActive(false);
-	}
-
-//Create new checkpoint.
-	public void ChangeCheckpoint(Vector3 changeCheckpoint)
-	{
-		lastCheckpoint = changeCheckpoint;
-	}
-
-//Restart level.
-	public void Restart()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}
-
-//Exit to main menu.
-	public void ExitGame()
-	{
-		SceneManager.LoadScene("LoadScreen");
-	}
 }

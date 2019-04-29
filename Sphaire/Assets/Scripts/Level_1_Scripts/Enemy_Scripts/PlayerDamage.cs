@@ -24,19 +24,19 @@ public class PlayerDamage : MonoBehaviour
                 _hitDirection = _hitDirection.normalized;
                 player.Knockback(_hitDirection);
 
+                Handheld.Vibrate();
                 playerDeath.invincibilityCounter = invincibilityLength;
 //Take damage and if bomb,explode bomb.
                 if (this.CompareTag("Bomb"))
                 {
                     playerHealthBar.value += 0.5f;
-                    GetComponent<MeshRenderer>().enabled = false;
-
+                    
                     if(bombExplosion != null)
                     {
+                        GetComponent<MeshRenderer>().enabled = false;
                         Instantiate(bombExplosion, transform.position, transform.rotation);
+                        Destroy(gameObject);
                     }
-
-                    Destroy(gameObject);
                 }
                 else if(this.CompareTag("Enemy"))
                 {

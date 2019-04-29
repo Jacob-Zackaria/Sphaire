@@ -23,33 +23,13 @@ public class PlatformMovement : MonoBehaviour
     private float _delayPlatform = 0f;
     private bool _isArrived;
 
-    /*public Sound[] sounds;
-    public static AudioManager instance;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject); 
-        foreach(Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-        }
-    }*/
-
     //Calculate final position.
     private void Start()
     {
         _finalPosition = transform.position + endPosition;
     }
 
-    private void Update() {
+    private void FixedUpdate() {
 
         //Calculate distance to final position.
         _distance = Vector3.Distance(transform.position, _finalPosition);

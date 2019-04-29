@@ -1,16 +1,51 @@
 using UnityEngine;
-using System.Collections;
 
 public class door : MonoBehaviour {
-	GameObject thedoor;
+	public GameObject thedoor;
+    public GameObject greenTile;
+    public GameObject blueTile;
+    public GameObject keyCanvas;
 
-void OnTriggerEnter ( Collider obj  ){
-	thedoor= GameObject.FindWithTag("SF_Door");
-	thedoor.GetComponent<Animation>().Play("open");
-}
+    private bool _greenKey = false;
+    private bool _blueKey = false;
+    private bool _redKey = false;
 
-void OnTriggerExit ( Collider obj  ){
-	thedoor= GameObject.FindWithTag("SF_Door");
-	thedoor.GetComponent<Animation>().Play("close");
-}
+    //Open door.
+    void OnTriggerEnter (Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (_greenKey && _blueKey)
+            {
+                thedoor.GetComponent<Animation>().Play("open");
+            }
+            else
+            {
+                keyCanvas.SetActive(true);
+            }
+        }
+    }
+
+    //Close door.
+    void OnTriggerExit (Collider other)
+    {
+        if (other.CompareTag("Player") && _greenKey && _blueKey)
+            thedoor.GetComponent<Animation>().Play("close");
+
+        keyCanvas.SetActive(false);
+    }
+
+    //Set Green Key.
+    public void SetGreenKey(Material greenHealth)
+    {
+        _greenKey = true;
+        greenTile.GetComponent<MeshRenderer>().material = greenHealth;
+    }
+
+    //Set Blue Key.
+    public void SetBlueKey(Material bluePill)
+    {
+        _blueKey = true;
+        blueTile.GetComponent<MeshRenderer>().material = bluePill;
+    }
 }

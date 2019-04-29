@@ -1,35 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class ChestDemo : MonoBehaviour {
 
-    //This script goes on the ChestComplete prefab;
+    private Animator _chestAnim; //Animator for the chest;
 
-    public Animator chestAnim; //Animator for the chest;
+    public GameObject key;
+    public GameObject explosion;
 
-	// Use this for initialization
-	void Awake ()
+	void Start ()
     {
         //get the Animator component from the chest;
-        chestAnim = GetComponent<Animator>();
-        //start opening and closing the chest for demo purposes;
-        StartCoroutine(OpenCloseChest());
+        _chestAnim = GetComponent<Animator>();
 	}
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            StartCoroutine("OpenCloseChest");
+        }
+    }
 
     IEnumerator OpenCloseChest()
     {
         //play open animation;
-        chestAnim.SetTrigger("open");
+        _chestAnim.SetTrigger("open");
+        //wait 1 seconds;
+        yield return new WaitForSeconds(2);
+        //Instantiate Key.
+        GameObject newKey = Instantiate(key, transform.position, Quaternion.identity);
+        newKey.transform.Translate((new Vector3(0f, 1.5f, 0f)) * Time.deltaTime);
         //wait 2 seconds;
         yield return new WaitForSeconds(2);
         //play close animation;
-        chestAnim.SetTrigger("close");
+        _chestAnim.SetTrigger("close");
         //wait 2 seconds;
-        yield return new WaitForSeconds(2);
-        //Do it again;
-        StartCoroutine(OpenCloseChest());
-
+        yield return new WaitForSeconds(1);
+        //Destroy effects.
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        //Destroy.
+        Destroy(gameObject);
     }
 }
