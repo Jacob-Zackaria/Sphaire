@@ -8,6 +8,7 @@ public class TreasureCollector : MonoBehaviour
 
     private MeshRenderer _renderer;
     private AudioSource _audio;
+    private float _moveEndTime = 1f;
 
     //Initialising.
     private void Start()
@@ -16,6 +17,18 @@ public class TreasureCollector : MonoBehaviour
         _renderer = GetComponent<MeshRenderer>();
     }
 
+    private void Update()
+    {
+        if (_moveEndTime > 0f)
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.up, Time.deltaTime);
+        }
+
+        if(_moveEndTime > 0f)
+        {
+            _moveEndTime -= Time.deltaTime;
+        }
+    }
     //Add coin and play coin sound.
     private void OnTriggerEnter(Collider other)
     {
@@ -24,12 +37,13 @@ public class TreasureCollector : MonoBehaviour
             //Make this Object Invincible.
             _renderer.enabled = false;
             GetComponent<Collider>().enabled = false;
+            GetComponentInChildren<Light>().enabled = false;
 
-            if (_renderer.material == greenHealth)
+            if (_renderer.sharedMaterial == greenHealth)
             {
                 setKey.SetGreenKey(greenHealth);
             }
-            else if (_renderer.material == bluePill)
+            else if (_renderer.sharedMaterial == bluePill)
             {
                 setKey.SetBlueKey(bluePill);
             }

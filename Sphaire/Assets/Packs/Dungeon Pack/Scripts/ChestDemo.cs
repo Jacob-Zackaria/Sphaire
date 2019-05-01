@@ -6,6 +6,7 @@ public class ChestDemo : MonoBehaviour {
     private Animator _chestAnim; //Animator for the chest;
 
     public GameObject key;
+    public door theDoor;
     public GameObject explosion;
 
 	void Start ()
@@ -29,8 +30,8 @@ public class ChestDemo : MonoBehaviour {
         //wait 1 seconds;
         yield return new WaitForSeconds(2);
         //Instantiate Key.
-        GameObject newKey = Instantiate(key, transform.position, Quaternion.identity);
-        newKey.transform.Translate((new Vector3(0f, 1.5f, 0f)) * Time.deltaTime);
+        GameObject newKey = Instantiate(key, transform.position, Quaternion.Euler(45f, 0f, 0f));
+        newKey.GetComponent<TreasureCollector>().setKey = theDoor;
         //wait 2 seconds;
         yield return new WaitForSeconds(2);
         //play close animation;

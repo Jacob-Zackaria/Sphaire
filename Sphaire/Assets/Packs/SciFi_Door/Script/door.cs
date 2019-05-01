@@ -8,14 +8,14 @@ public class door : MonoBehaviour {
 
     private bool _greenKey = false;
     private bool _blueKey = false;
-    private bool _redKey = false;
+    //private bool _redKey = false;
 
     //Open door.
     void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (_greenKey && _blueKey)
+            if (_greenKey)
             {
                 thedoor.GetComponent<Animation>().Play("open");
             }

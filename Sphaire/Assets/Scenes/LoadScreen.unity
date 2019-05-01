@@ -2260,8 +2260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.97343755, y: 1}
-  m_AnchoredPosition: {x: 25.494999, y: -406.74994}
-  m_SizeDelta: {x: 5.2998, y: 813.5}
+  m_AnchoredPosition: {x: 25, y: -1805}
+  m_SizeDelta: {x: 5, y: 3610}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &455684444
 MonoBehaviour:
@@ -2287,8 +2287,16 @@ MonoBehaviour:
     MGM COLLEGE OF ENGINEERING\n<color=blue><b>2015-2019</b></color> BATCH\n\nTHANKS
     TO ALL TEACHERS WHO SUPPORTED US\nAND GUIDE DEENA MISS\n\nDEVELOPED BY ICEBOX\n\nTEAM
     MEMBERS :\n\nSENIOR DEVELOPER\nJACOB ZACKARIA\n\n3D MODELER\nJEEN J CHERUSSERIL\n\nCREATIVE
-    ANALYST\nBASIL KURIAN\n\nDONATIONS ARE GIVEN TO CHARITY\n\nIF U LIKE THIS GAME
-    RATE US !"
+    ANALYST\nBASIL KURIAN\n\nDONATIONS ARE GIVEN TO CHARITY\n\n<color=blue>THANKS
+    TO:</color>\nAKHILA PG\nAKHITHA ALIYAS\nALVIN ROY\nAMAL VINAYAK\nAMMU RAJAN\nANAGHA
+    CHANDRAN\nANAKHA SAJU\nANANDADAS K A\nASWATHY ASHOKAN\nBASIL TITUS\nBESTIN K C\nCATHARIN
+    JOSE\nDANIEL MATHEW\nDHANYA BIJU\nDIANA JOY\nDIVYA PRAKASH\nFEBIL P V\nJASMIN
+    JOHN\nJERIN SABU\nJOBIN JOY VARGHESE\nKRIPA SUSAN JACOB\nKRISHNA S NAIR\nMERLIN
+    KURIAKOSE\nMINNA SON JOSEPH\nNIKHILA ANIL\nNIMMY AVARACHAN\nNIVYA REJI\nREVATHY
+    CHANDRAN\nROBIN REJI\nSANDEEP M NAIR\nSARAMMA VARGHESE\nSINUMON C M\nSUDHY SUKUMARAN\nVIJAY
+    P JOHN\nVISHAL VISHWAN\nVISHNU NARAYAN\nWOLGY WILSON\nABIN T SUNNY\nCHINJU SURENDRAN\nDEVIKA
+    SOMAN\nHARILAL P VECHOOR\nJOHN JOHN KADAPURAM\nLIJO JOSE\nRATHEESH P R\n\nIF U
+    LIKE THIS GAME RATE US !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9b88a73f9ba00e94185a5c542e5ff33c, type: 2}
   m_sharedMaterial: {fileID: 21015098719358306, guid: 9b88a73f9ba00e94185a5c542e5ff33c,
@@ -2335,7 +2343,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 338
+  m_firstOverflowCharacterIndex: 962
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2358,15 +2366,15 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 455684444}
-    characterCount: 368
+    characterCount: 991
     spriteCount: 0
-    spaceCount: 110
-    wordCount: 53
+    spaceCount: 215
+    wordCount: 157
     linkCount: 0
-    lineCount: 24
+    lineCount: 70
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -2664,7 +2672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -9.666516e-10, y: 0.99226314, z: -0.12415293, w: -0.000000007725741}
+  m_LocalRotation: {x: -9.056212e-10, y: 0.99226314, z: -0.12415293, w: -0.0000000072379693}
   m_LocalPosition: {x: 0.00000026226832, y: 0.58, z: 18.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6083,7 +6091,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1892105761}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.42670894
+  m_Size: 0.14363658
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6195,7 +6203,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360254034}
-  m_LocalRotation: {x: -0.050018005, y: 0.0014097324, z: 0.02813878, w: 0.9983509}
+  m_LocalRotation: {x: -0.050018005, y: 0.0014097318, z: 0.028138787, w: 0.9983509}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8712,7 +8720,7 @@ RectTransform:
   m_Father: {fileID: 125567881}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.57329106}
+  m_AnchorMin: {x: 0, y: 0.8563634}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -8896,7 +8904,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941656621}
-  m_LocalRotation: {x: 0.03183889, y: -0.001235706, z: -0.038763076, w: -0.9987403}
+  m_LocalRotation: {x: 0.03183889, y: -0.001235721, z: -0.038763534, w: -0.9987403}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9238,7 +9246,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975621855}
-  m_LocalRotation: {x: 0.06812113, y: -0.0019252829, z: -0.028185977, w: -0.9972771}
+  m_LocalRotation: {x: 0.06812113, y: -0.0019252811, z: -0.028185977, w: -0.9972771}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

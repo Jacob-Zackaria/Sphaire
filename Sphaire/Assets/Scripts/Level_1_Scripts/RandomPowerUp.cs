@@ -30,9 +30,9 @@ public class RandomPowerUp : MonoBehaviour
     //Size Up Power.
     IEnumerator SizeUp()
     {
-        player.GetComponent<Animation>().Play("PlayerSizeUp");
+        player.GetComponent<Animator>().SetTrigger("SizeUp");
         yield return new WaitForSeconds(15f);
-        player.GetComponent<Animation>().Play("PlayerSizeDown");
+        player.GetComponent<Animator>().SetTrigger("SizeDown");
         yield return new WaitForSeconds(2f);
 
         //Destroy Object.

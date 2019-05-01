@@ -26,13 +26,13 @@ public class PlatformMovement : MonoBehaviour
     //Calculate final position.
     private void Start()
     {
-        _finalPosition = transform.position + endPosition;
+        _finalPosition = transform.localPosition + endPosition;
     }
 
     private void FixedUpdate() {
 
         //Calculate distance to final position.
-        _distance = Vector3.Distance(transform.position, _finalPosition);
+        _distance = Vector3.Distance(transform.localPosition, _finalPosition);
 
         //If script is active and no delay time, move.
         if (isActive && _delayPlatform <= 0f)
@@ -81,7 +81,7 @@ public class PlatformMovement : MonoBehaviour
         else
         {
             endPosition *= -1;
-            _finalPosition = transform.position + endPosition;
+            _finalPosition = transform.localPosition + endPosition;
             _delayPlatform = waitTime;
         }
     }

@@ -439,9 +439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b552c8d96b5880e468a9f86fd5cea9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
+  rotationSpeed: 0
   rotationSmoothness: 20
-  attackWaitTime: 5
+  attackWaitTime: 4
   rightBoxCollider: {fileID: 644230729393457244}
   bombExplosion: {fileID: 1850175274783514, guid: 41a60e49e3917494faec4d6ec104691a,
     type: 3}

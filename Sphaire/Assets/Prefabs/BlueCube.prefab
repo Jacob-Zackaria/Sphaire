@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2764790757325146892}
   - component: {fileID: 473301556534567248}
   - component: {fileID: 3390059426335858196}
+  - component: {fileID: 2699279056011395502}
   m_Layer: 0
   m_Name: BlueCube
   m_TagString: Untagged
@@ -28,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3842528657510631640}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.71, y: 1.17, z: 0.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 2785471617398041118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3409302905027486487
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -206,6 +207,19 @@ MonoBehaviour:
   setKey: {fileID: 0}
   greenHealth: {fileID: 2100000, guid: 78897afbd31d9d8449016e50a70a36a3, type: 2}
   bluePill: {fileID: 2100000, guid: 32e31994fc73fca4a8bff6cdb50992a0, type: 2}
+--- !u!114 &2699279056011395502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842528657510631640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d1c710b96cf434f9d0cfd5d0cad307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
 --- !u!1 &6473820498030454123
 GameObject:
   m_ObjectHideFlags: 0
